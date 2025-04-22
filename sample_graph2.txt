@@ -1,0 +1,12 @@
+// Node‑IDs
+X = 10;
+Y = 2;      // kleinste ID  →  Root
+Z = 5;
+W = 8;
+
+// Links und Kosten
+X - Y : 7;
+X - Z : 4;
+Y - Z : 1;
+Y - W : 9;
+Z - W : 3;
