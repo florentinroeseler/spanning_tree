@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 
 from .parser import parse_graph_file
-from .spanning_tree import dump_state, run_spanning_tree, print_spanning_tree
+from .spanning_tree import run_spanning_tree, print_spanning_tree
 
 
 def main() -> None:
@@ -13,10 +13,6 @@ def main() -> None:
     ns = ap.parse_args()
 
     nodes = parse_graph_file(ns.graph_file)
-    print("== Knotentabelle ==")
-    for n in nodes.values():
-        print(f"{n.name:2}  id={n.node_id}")
-    print("kleinste node_id:", min(n.node_id for n in nodes.values()))
 
     run_spanning_tree(nodes, max_rounds=ns.max_rounds)
     print_spanning_tree(nodes)

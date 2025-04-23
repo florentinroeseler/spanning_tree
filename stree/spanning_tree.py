@@ -38,7 +38,6 @@ def _step(node: Node, nodes: Dict[str, Node]) -> bool:
             remote.total_cost = offer_cost
             changed = True
 
-    node.msg_cnt += 1
     return changed
 
 
@@ -69,12 +68,3 @@ def print_spanning_tree(nodes):
         if n.next_hop:                       # KEIN weiterer Filter
             print(f"  {n.name} - {n.next_hop}")
     print("}")
-
-
-def dump_state(nodes):
-    for n in nodes.values():
-        print(f"{n.name}: next={n.next_hop}  myRoot={n.node_id}")
-        for nb, link in n.neighbors.items():
-            print(f"   -> {nb}: root={link.root_id} cost={link.total_cost}")
-    print("-" * 40)
-

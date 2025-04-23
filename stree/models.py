@@ -20,4 +20,3 @@ class Node:
 
     # dynamische Felder während der Simulation
     next_hop: Optional[str] = None   # wohin leite ich Frames zur Root?
-    msg_cnt: int = 0                 # Statistik

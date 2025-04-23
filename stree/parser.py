@@ -1,4 +1,4 @@
-"""Einlesen und Validieren der Graphbeschreibung."""
+"""Einlesen und Parsen der Textdatei."""
 from __future__ import annotations
 import re
 from pathlib import Path
@@ -52,13 +52,6 @@ def parse_graph_file(path: str | Path) -> Dict[str, Node]:
     missing = [n.name for n in nodes.values() if n.node_id is None]
     if missing:
         raise ValueError(f"Keine node_id für: {', '.join(missing)}")
-
-
-    # # Initiale BPDU‑Befüllung: jeder Knoten hält sich selbst für Root
-    # for n in nodes.values():
-    #     for ns in n.neighbors.values():
-    #         ns.root_id = n.node_id
-    #         ns.total_cost = 0
 
     return nodes
 
